@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>nl.wijsmullerbros</groupId>
+	<artifactId>xwt-passive-view</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.4</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<artifactId>swt-linux</artifactId>
+			<groupId>swt</groupId>
+			<version>3.7.1</version>
+			<systemPath>${basedir}/lib/swt.jar</systemPath>
+			<optional>true</optional>
+			<scope>system</scope>
+		</dependency>
+		<dependency>
+			<artifactId>xwt</artifactId>
+			<groupId>org.eclipse.e4</groupId>
+			<version>0.9.1.SNAPSHOT</version>
+			<systemPath>${basedir}/lib/org.eclipse.e4.xwt_0.9.1.SNAPSHOT.jar</systemPath>
+			<scope>system</scope>
+		</dependency>
+	</dependencies>
+
+</project>
