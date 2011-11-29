@@ -1,9 +1,7 @@
 package nl.wijsmullerbros.xwt;
 
-import nl.wijsmullerbros.Assert;
 import nl.wijsmullerbros.HasTextValue;
 
-import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 
 /**
@@ -13,35 +11,28 @@ import org.eclipse.swt.widgets.Label;
  */
 public class HasLabelAdapter implements HasTextValue {
 
-	private final Composite parent;
-	private final String name;
-
-	/**
-	 * Creates a new {@link HasLabelAdapter}.
-	 * @param parent a reference to the parent to use as context
-	 * @param name the name of the component to lookup in static XWT map
-	 */
-	public HasLabelAdapter(Composite parent, String name) {
-		Assert.notNull(parent, "Parameter 'parent' cannot be null");
-		Assert.notNull(name, "Parameter 'name' cannot be null");
-		this.parent = parent;
-		this.name = name;
+	private final LazyXwtComponent<Label> comp;
+	private HasLabelAdapter(LazyXwtComponent<Label> comp) {
+		this.comp = comp;
 	}
 	
 	@Override
 	public String getValue() {
-		Label label = XWTUtil.getWidget(parent, name, Label.class);
-		return label.getText();
+		return comp.getComponent().getText();
 	}
 
 	@Override
 	public void setValue(String value) {
-		Label field = XWTUtil.getWidget(parent, name, Label.class);
+		Label field = comp.getComponent();
 		if (value != null) {
 			field.setText(value);
 		} else {
 			field.setText("");
 		}
+	}
+
+	public static HasTextValue wrap(LazyXwtComponent<Label> label) {
+		return new HasLabelAdapter(label);
 	}
 
 }

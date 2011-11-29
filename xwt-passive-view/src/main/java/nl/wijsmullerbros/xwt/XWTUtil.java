@@ -21,6 +21,10 @@ public class XWTUtil {
 		//hidden
 	}
 	
+	public static void setForegroundColor(Control control, int color) {
+		control.setForeground(control.getDisplay().getSystemColor(color));
+	}
+	
 	@SuppressWarnings("unchecked")
 	public static <T> T getWidget(Widget context, String xwtName, Class<T> type) {
 		return (T) XWT.findElementByName(context, xwtName);
