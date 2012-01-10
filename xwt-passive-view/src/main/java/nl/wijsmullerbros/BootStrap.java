@@ -18,5 +18,10 @@ public interface BootStrap {
 	 */
 	void open(URL configUrl) throws DisplaySystemRuntimeException;
 
+	/**
+	 * Returns a reference to the root object of the windowing toolkit
+	 * that may be needed for some corner cases.
+	 * @return Object a reference to the root object (eg: the window or display) 
+	 */
 	Object getRootWindowReference();
 }

@@ -6,6 +6,14 @@ package nl.wijsmullerbros;
  * @author bwijsmuller
  */
 public interface HasTextValue {
+	/**
+	 * Can be called to get the component text value
+	 * @return the text
+	 */
 	String getValue();
+	/**
+	 * Can be called to set the component text value
+	 * @param value to set
+	 */
 	void setValue(String value);
 }

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package nl.wijsmullerbros.xwt;
 
 import nl.wijsmullerbros.HasNumberValue;
@@ -39,8 +36,13 @@ public class HasNumberAdapter implements HasNumberValue {
 		}
 	}
 
-	public static HasNumberValue wrap(LazyXwtComponent<Text> numberText) {
-		return new HasNumberAdapter(numberText);
+	/**
+	 * Wraps the lazy loading component.
+	 * @param comp the component
+	 * @return component adapted to HasNumberValue
+	 */
+	public static HasNumberValue wrap(LazyXwtComponent<Text> comp) {
+		return new HasNumberAdapter(comp);
 	}
 
 }

@@ -11,6 +11,8 @@ import org.eclipse.swt.widgets.Text;
  */
 public class HasTextListAdapter implements HasTextList {
 
+	private static final String NEWLINE = "\n";
+	
 	private final LazyXwtComponent<Text> comp;
 	private HasTextListAdapter(LazyXwtComponent<Text> comp) {
 		this.comp = comp;
@@ -19,11 +21,16 @@ public class HasTextListAdapter implements HasTextList {
 	@Override
 	public void add(String text) {
 		Text field = comp.getComponent();
-		field.append("\n" + text);
+		field.append(NEWLINE + text);
 	}
 
-	public static HasTextList wrap(LazyXwtComponent<Text> textList) {
-		return new HasTextListAdapter(textList);
+	/**
+	 * Wraps the lazy loading component.
+	 * @param comp the component
+	 * @return component adapted to HasTextList
+	 */
+	public static HasTextList wrap(LazyXwtComponent<Text> comp) {
+		return new HasTextListAdapter(comp);
 	}
 
 }

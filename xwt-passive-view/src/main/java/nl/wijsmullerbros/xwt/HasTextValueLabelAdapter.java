@@ -9,10 +9,10 @@ import org.eclipse.swt.widgets.Label;
  * to the {@link HasTextValue} interface.
  * @author bwijsmuller
  */
-public class HasLabelAdapter implements HasTextValue {
+public class HasTextValueLabelAdapter implements HasTextValue {
 
 	private final LazyXwtComponent<Label> comp;
-	private HasLabelAdapter(LazyXwtComponent<Label> comp) {
+	private HasTextValueLabelAdapter(LazyXwtComponent<Label> comp) {
 		this.comp = comp;
 	}
 	
@@ -31,8 +31,13 @@ public class HasLabelAdapter implements HasTextValue {
 		}
 	}
 
-	public static HasTextValue wrap(LazyXwtComponent<Label> label) {
-		return new HasLabelAdapter(label);
+	/**
+	 * Wraps the lazy loading component.
+	 * @param comp the component
+	 * @return component adapted to HasTextValue
+	 */
+	public static HasTextValue wrap(LazyXwtComponent<Label> comp) {
+		return new HasTextValueLabelAdapter(comp);
 	}
 
 }

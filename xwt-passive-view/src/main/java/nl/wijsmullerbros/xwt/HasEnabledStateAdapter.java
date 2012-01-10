@@ -32,8 +32,13 @@ public class HasEnabledStateAdapter implements HasEnabledState {
 		XWTUtil.disableEnableRecursive(control, enable);
 	}
 
-	public static HasEnabledState wrap(LazyXwtComponent<?> group) {
-		return new HasEnabledStateAdapter(group);
+	/**
+	 * Wraps the lazy loading component.
+	 * @param comp the component
+	 * @return component adapted to HasEnabledState
+	 */
+	public static HasEnabledState wrap(LazyXwtComponent<?> comp) {
+		return new HasEnabledStateAdapter(comp);
 	}
 
 }

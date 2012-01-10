@@ -24,8 +24,13 @@ public class MenuHasTextListAdapter implements HasTextList {
 		new MenuItem(widget, SWT.CHECK).setText(text);
 	}
 
-	public static HasTextList wrap(LazyXwtComponent<Menu> menu) {
-		return new MenuHasTextListAdapter(menu);
+	/**
+	 * Wraps the lazy loading component.
+	 * @param comp the component
+	 * @return component adapted to HasTextList
+	 */
+	public static HasTextList wrap(LazyXwtComponent<Menu> comp) {
+		return new MenuHasTextListAdapter(comp);
 	}
 
 }
